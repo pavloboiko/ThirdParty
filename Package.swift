@@ -29,7 +29,10 @@ let package = Package(
         .target(
             name: "ChattoAdditions",
             dependencies: ["Chatto"],
-            path: "Chatto/ChattoAdditions"
+            path: "Chatto/ChattoAdditions",
+            resources: [
+                .process("Resources"),
+            ]
         ),
         .target(
             name: "CountryPicker",
