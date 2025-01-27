@@ -12,7 +12,7 @@ private class CurrentBundleFinder {}
 // The custom bundle locator code is needed to work around a bug in Xcode
 // where SwiftUI previews in an SPM module will crash if they try to use
 // resources in another SPM module that are loaded using the synthesized
-// Bundle.current accessor.
+// Bundle.module accessor.
 //
 extension Bundle {
     static var current: Bundle = {
@@ -39,7 +39,7 @@ extension Bundle {
         #endif
         
         #if SWIFT_PACKAGE
-        return Bundle.current
+        return Bundle.module
         #else
         return Bundle(for: CurrentBundleFinder.self)
         #endif
